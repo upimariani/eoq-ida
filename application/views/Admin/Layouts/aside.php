@@ -58,16 +58,7 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="<?= base_url('Admin/cKategori') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cKategori') {
-																						echo 'active';
-																					}  ?>">
-						<i class="nav-icon fas fa-store"></i>
-						<p>
-							Kategori Barang
-						</p>
-					</a>
-				</li>
+
 				<li class="nav-item">
 					<a href="<?= base_url('Admin/cBarang') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cBarang') {
 																					echo 'active';
@@ -75,6 +66,16 @@
 						<i class="nav-icon fas fa-barcode"></i>
 						<p>
 							Barang
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('Admin/cKategori') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cKategori') {
+																						echo 'active';
+																					}  ?>">
+						<i class="nav-icon fas fa-store"></i>
+						<p>
+							Kategori
 						</p>
 					</a>
 				</li>

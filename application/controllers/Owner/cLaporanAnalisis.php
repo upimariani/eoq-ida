@@ -3,12 +3,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class cLaporanAnalisis extends CI_Controller
 {
-
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('mBarang');
+	}
 	public function index()
 	{
+		$data = array(
+			'barang' => $this->mBarang->select()
+		);
 		$this->load->view('Owner/Layouts/head');
 		$this->load->view('Owner/Layouts/aside');
-		$this->load->view('Owner/vLaporanAnalisis');
+		$this->load->view('Owner/vLaporanAnalisis', $data);
 		$this->load->view('Owner/Layouts/footer');
 	}
 	public function cetak_analisis()
@@ -20,8 +27,7 @@ class cLaporanAnalisis extends CI_Controller
 		$pdf->AddPage();
 
 
-		$bulan = $this->input->post('bulan');
-		$tahun = $this->input->post('tahun');
+		$barang = $this->input->post('barang');
 
 		$pdf->SetFont('Times', 'B', 14);
 		$pdf->Cell(190, 10, 'TOKO IDA OLSHOP', 0, 1, 'C');
@@ -40,7 +46,7 @@ class cLaporanAnalisis extends CI_Controller
 		$pdf->SetFont('Times', '', 9);
 		$no = 1;
 
-		$data = $this->db->query("SELECT * FROM `analisis` JOIN barang ON barang.id_barang=analisis.id_barang")->result();
+		$data = $this->db->query("SELECT * FROM `analisis` JOIN barang ON barang.id_barang=analisis.id_barang WHERE barang.id_barang='" . $barang . "'")->result();
 		$total = 0;
 		foreach ($data as $key => $value) {
 			$pdf->Cell(10, 7, $no++, 1, 0, 'C');

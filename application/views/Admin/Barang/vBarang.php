@@ -123,7 +123,7 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama Kategori</label><span class="text-danger">*</span>
 						<select class="form-control" name="kategori">
-							<option value="">---Pilih Kategori Barang---</option>
+							<option value="">---Pilih Kategori---</option>
 							<?php
 							foreach ($kategori as $key => $value) {
 							?>
@@ -166,6 +166,7 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
+
 <?php
 foreach ($barang as $key => $value) {
 ?>
@@ -184,7 +185,7 @@ foreach ($barang as $key => $value) {
 						<div class="form-group">
 							<label for="exampleInputEmail1">Nama Kategori</label><span class="text-danger">*</span>
 							<select class="form-control" name="kategori">
-								<option value="">---Pilih Kategori Barang---</option>
+								<option value="">---Pilih Barang---</option>
 								<?php
 								foreach ($kategori as $key => $item) {
 								?>
@@ -197,7 +198,7 @@ foreach ($barang as $key => $value) {
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Nama Barang</label><span class="text-danger">*</span>
+							<label for="exampleInputEmail1">Nama Kategori</label><span class="text-danger">*</span>
 							<input type="text" name="nama" value="<?= $value->nama_barang ?>" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama Barang" required>
 						</div>
 						<div class="form-group">

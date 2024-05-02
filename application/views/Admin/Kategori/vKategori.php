@@ -40,7 +40,7 @@
 				<div class="col-8">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Informasi Kategori Barang</h3>
+							<h3 class="card-title">Informasi Barang</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">

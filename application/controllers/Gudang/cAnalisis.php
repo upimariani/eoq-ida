@@ -30,7 +30,7 @@ class cAnalisis extends CI_Controller
 		$biaya_penyimpanan = $this->input->post('biaya_penyimpanan');
 
 
-		$jumlah_kebutuhan = $this->db->query("SELECT SUM(total_bayar) as total, barang.id_barang FROM `barang_keluar` JOIN dbarang_keluar ON barang_keluar.id_bkeluar=dbarang_keluar.id_bkeluar JOIN barang ON barang.id_barang=dbarang_keluar.id_barang WHERE barang.id_barang='" . $barang . "' AND YEAR(tgl_keluar)='" . $periode . "'")->row();
+		$jumlah_kebutuhan = $this->db->query("SELECT SUM(jumlah) as total, barang.id_barang FROM `barang_keluar` JOIN dbarang_keluar ON barang_keluar.id_bkeluar=dbarang_keluar.id_bkeluar JOIN barang ON barang.id_barang=dbarang_keluar.id_barang WHERE barang.id_barang='" . $barang . "' AND YEAR(tgl_keluar)='" . $periode . "'")->row();
 		//perhitungan EOQ
 		$eoq = round(sqrt((2 * $jumlah_kebutuhan->total * $biaya_pemesanan) / $biaya_penyimpanan));
 		// echo $jumlah_kebutuhan->total;

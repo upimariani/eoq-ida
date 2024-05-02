@@ -4,11 +4,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class cLaporan extends CI_Controller
 {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('mKategori');
+	}
+
 	public function index()
 	{
+		$data = array(
+			'kategori' => $this->mKategori->select()
+		);
 		$this->load->view('Owner/Layouts/head');
 		$this->load->view('Owner/Layouts/aside');
-		$this->load->view('Owner/vLaporan');
+		$this->load->view('Owner/vLaporan', $data);
 		$this->load->view('Owner/Layouts/footer');
 	}
 	public function cetak_bkeluar()
@@ -22,6 +31,7 @@ class cLaporan extends CI_Controller
 
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
+		$kategori = $this->input->post('kategori');
 
 		$pdf->SetFont('Times', 'B', 14);
 		$pdf->Cell(190, 10, 'TOKO IDA OLSHOP', 0, 1, 'C');
@@ -39,7 +49,7 @@ class cLaporan extends CI_Controller
 		$pdf->SetFont('Times', '', 9);
 		$no = 1;
 
-		$data = $this->db->query("SELECT * FROM `barang_keluar` JOIN dbarang_keluar ON barang_keluar.id_bkeluar=dbarang_keluar.id_bkeluar JOIN barang ON barang.id_barang=dbarang_keluar.id_barang WHERE MONTH(tgl_keluar)='" . $bulan . "' AND YEAR(tgl_keluar)='" . $tahun . "'")->result();
+		$data = $this->db->query("SELECT * FROM `barang_keluar` JOIN dbarang_keluar ON barang_keluar.id_bkeluar=dbarang_keluar.id_bkeluar JOIN barang ON barang.id_barang=dbarang_keluar.id_barang WHERE MONTH(tgl_keluar)='" . $bulan . "' AND YEAR(tgl_keluar)='" . $tahun . "' AND id_kategori='" . $kategori . "'")->result();
 		$total = 0;
 		foreach ($data as $key => $value) {
 			$total += ($value->harga_jual * $value->jumlah);

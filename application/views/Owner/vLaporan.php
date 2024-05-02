@@ -8,8 +8,21 @@
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<div class="row">
-
-							<div class="col-6">
+							<div class="col-4">
+								<div class="form-group">
+									<label>Kategori:</label>
+									<select class="select2" name="kategori" style="width: 100%;">
+										<?php
+										foreach ($kategori as $key => $value) {
+										?>
+											<option value="<?= $value->id_kategori ?>"><?= $value->nama_kategori ?></option>
+										<?php
+										}
+										?>
+									</select>
+								</div>
+							</div>
+							<div class="col-4">
 								<div class="form-group">
 									<label>Periode Bulan:</label>
 									<select class="select2" name="bulan" style="width: 100%;">
@@ -28,7 +41,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-6">
+							<div class="col-4">
 								<div class="form-group">
 									<label>Tahun:</label>
 									<select class="select2" name="tahun" style="width: 100%;">

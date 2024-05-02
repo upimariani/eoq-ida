@@ -75,7 +75,7 @@
 																					}  ?>">
 						<i class="nav-icon fas fa-chart-pie"></i>
 						<p>
-							Analisis Barang
+							Analisis Kategori
 						</p>
 					</a>
 				</li>

@@ -45,7 +45,7 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">Tahun Periode</label>
 								<select name="periode" class="form-control" required>
-									<option value="">---Pilih Nama Barang---</option>
+									<option value="">---Pilih Tahun---</option>
 									<?php
 									foreach ($variabel['periode'] as $key => $value) {
 									?>
@@ -104,7 +104,7 @@
 				<div class="col-8">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Informasi Analisis Barang Metode EOQ</h3>
+							<h3 class="card-title">Informasi Analisis Kategori Metode EOQ</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
