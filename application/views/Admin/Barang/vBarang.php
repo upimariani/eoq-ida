@@ -63,7 +63,9 @@
 										<tr>
 											<td><?= $no++ ?>.</td>
 											<td class="text-center"><img style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>"><br><?= $value->nama_barang ?><br>
-												<strong><?= $value->nama_kategori ?></strong>
+												<strong><?= $value->nama_kategori ?></strong><br>
+												<small>Biaya Pemesanan : <strong>Rp. <?= number_format($value->biaya_pemesanan)  ?></strong></small><br>
+												<small>Biaya Penyimpanan : <strong>Rp. <?= number_format($value->biaya_penyimpanan) ?></strong></small>
 											</td>
 											<td><?= $value->keterangan ?></td>
 											<td>Rp. <?= number_format($value->harga_jual)  ?></td>
@@ -153,6 +155,15 @@
 						<label for="exampleInputEmail1">Gambar</label><span class="text-danger">*</span>
 						<input type="file" name="gambar" class="form-control" id="exampleInputEmail1" required>
 					</div>
+					<hr>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Biaya Pemesanan</label><span class="text-danger">*</span>
+						<input type="number" name="biaya_pemesanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Pemesanan" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Biaya Penyimpanan</label><span class="text-danger">*</span>
+						<input type="number" name="biaya_penyimpanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Penyimpanan" required>
+					</div>
 
 				</div>
 			</div>
@@ -218,7 +229,15 @@ foreach ($barang as $key => $value) {
 							<img style="width: 100px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>">
 							<input type="file" name="gambar" class="form-control" id="exampleInputEmail1">
 						</div>
-
+						<hr>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Biaya Pemesanan</label><span class="text-danger">*</span>
+							<input type="number" value="<?= $value->biaya_pemesanan ?>" name="biaya_pemesanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Pemesanan" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Biaya Penyimpanan</label><span class="text-danger">*</span>
+							<input type="number" value="<?= $value->biaya_penyimpanan ?>" name="biaya_penyimpanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Penyimpanan" required>
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer justify-content-between">

@@ -31,12 +31,12 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Barang</label>
-								<select name="barang" class="form-control" required>
+								<select name="barang" id="dt-barang" class="form-control" required>
 									<option value="">---Pilih Nama Barang---</option>
 									<?php
 									foreach ($variabel['barang'] as $key => $value) {
 									?>
-										<option value="<?= $value->id_barang ?>"><?= $value->nama_barang ?></option>
+										<option data-pemesanan="<?= $value->biaya_pemesanan ?>" data-penyimpanan="<?= $value->biaya_penyimpanan ?>" value="<?= $value->id_barang ?>"><?= $value->nama_barang ?></option>
 									<?php
 									}
 									?>
@@ -57,11 +57,11 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Biaya Pemesanan per Periode</label>
-								<input type="number" name="biaya_pemesanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Pemesanan">
+								<input type="number" name="biaya_pemesanan" class="pemesanan form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Pemesanan" readonly>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Biaya Penyimpanan</label>
-								<input type="number" name="biaya_penyimpanan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Penyimpanan">
+								<input type="number" name="biaya_penyimpanan" class="penyimpanan form-control" id="exampleInputEmail1" placeholder="Masukkan Biaya Penyimpanan" readonly>
 							</div>
 							<hr>
 							<div class="form-group">

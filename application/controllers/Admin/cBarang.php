@@ -46,7 +46,10 @@ class cBarang extends CI_Controller
 				'keterangan' => $this->input->post('keterangan'),
 				'harga_supplier' => $this->input->post('harga_supplier'),
 				'harga_jual' => $this->input->post('harga_jual'),
-				'gambar' => $upload_data['file_name']
+				'gambar' => $upload_data['file_name'],
+				'biaya_pemesanan' => $this->input->post('biaya_pemesanan'),
+				'biaya_penyimpanan' => $this->input->post('biaya_penyimpanan')
+
 			);
 			$this->mBarang->create($data);
 			$this->session->set_flashdata('success', 'Data barang Berhasil Ditambahkan!!!');
@@ -77,7 +80,9 @@ class cBarang extends CI_Controller
 				'keterangan' => $this->input->post('keterangan'),
 				'harga_supplier' => $this->input->post('harga_supplier'),
 				'harga_jual' => $this->input->post('harga_jual'),
-				'gambar' => $upload_data['file_name']
+				'gambar' => $upload_data['file_name'],
+				'biaya_pemesanan' => $this->input->post('biaya_pemesanan'),
+				'biaya_penyimpanan' => $this->input->post('biaya_penyimpanan')
 			);
 			$this->mBarang->update($id, $data);
 			$this->session->set_flashdata('success', 'Data barang Berhasil Ditambahkan!!!');
@@ -89,7 +94,9 @@ class cBarang extends CI_Controller
 			'nama_barang' => $this->input->post('nama'),
 			'keterangan' => $this->input->post('keterangan'),
 			'harga_supplier' => $this->input->post('harga_supplier'),
-			'harga_jual' => $this->input->post('harga_jual')
+			'harga_jual' => $this->input->post('harga_jual'),
+			'biaya_pemesanan' => $this->input->post('biaya_pemesanan'),
+			'biaya_penyimpanan' => $this->input->post('biaya_penyimpanan')
 		);
 		$this->mBarang->update($id, $data);
 		$this->session->set_flashdata('success', 'Data barang Berhasil Diperbaharui!!!');

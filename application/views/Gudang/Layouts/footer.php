@@ -1,16 +1,7 @@
 <!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-light">
-	<!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
-
-<!-- Main Footer -->
-<footer class="main-footer">
-	<strong>TOKO IDA OLSHOP</strong> Metode Economic Order Quantity
 
 
-</footer>
-</div>
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
@@ -70,6 +61,19 @@
 
 		$(".harga").html($(this).find(':selected').attr('data-harga'));
 		$(".harga").val($(this).find(':selected').attr('data-harga'));
+
+	});
+</script>
+<script>
+	console.log = function() {}
+	$("#dt-barang").on('change', function() {
+
+		$(".pemesanan").html($(this).find(':selected').attr('data-pemesanan'));
+		$(".pemesanan").val($(this).find(':selected').attr('data-pemesanan'));
+
+
+		$(".penyimpanan").html($(this).find(':selected').attr('data-penyimpanan'));
+		$(".penyimpanan").val($(this).find(':selected').attr('data-penyimpanan'));
 
 	});
 </script>

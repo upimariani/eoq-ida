@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 03:48 AM
+-- Generation Time: Aug 12, 2024 at 06:07 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -35,21 +35,10 @@ CREATE TABLE `analisis` (
   `tahun` int(11) NOT NULL,
   `eoq` double NOT NULL,
   `rop` double NOT NULL,
-  `biaya_pemesanan` double NOT NULL,
-  `biaya_penyimpanan` double NOT NULL,
   `jml_penggunaan` double NOT NULL,
   `ss` double NOT NULL,
   `lt` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `analisis`
---
-
-INSERT INTO `analisis` (`id_analisis`, `id_barang`, `periode`, `tahun`, `eoq`, `rop`, `biaya_pemesanan`, `biaya_penyimpanan`, `jml_penggunaan`, `ss`, `lt`) VALUES
-(1, 1, '2024-04-26', 2022, 8961, 134168, 140000, 35000, 10037036, 341, 4),
-(3, 2, '2024-04-26', 2022, 11139, 77119, 540000, 50000, 5744121, 531, 4),
-(4, 2, '2024-04-26', 2022, 11139, 77119, 540000, 50000, 5744121, 531, 4);
 
 -- --------------------------------------------------------
 
@@ -67,31 +56,33 @@ CREATE TABLE `barang` (
   `gambar` text NOT NULL,
   `stok_min` int(11) NOT NULL,
   `eoq_in` double NOT NULL,
-  `stok_gudang` int(11) NOT NULL
+  `stok_gudang` int(11) NOT NULL,
+  `biaya_pemesanan` int(11) NOT NULL,
+  `biaya_penyimpanan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_kategori`, `nama_barang`, `keterangan`, `harga_supplier`, `harga_jual`, `gambar`, `stok_min`, `eoq_in`, `stok_gudang`) VALUES
-(1, 6, 'Barang A', 'pcs', '112471', '122471', 'fgf.jpg', 0, 0, 0),
-(2, 3, 'Barang B', 'pcs', '146361', '156361', 'fgf.jpg', 77119, 11139, 80000),
-(3, 1, 'Barang C', 'pcs', '113685', '123685', 'fgf.jpg', 0, 0, 0),
-(4, 2, 'Barang D', 'pcs', '100431', '110431', 'fgf.jpg', 0, 0, 0),
-(5, 3, 'Barang E', 'pcs', '198725', '208725', 'fgf.jpg', 0, 0, 0),
-(6, 2, 'Barang F', 'pcs', '132284', '142284', 'fgf.jpg', 0, 0, 0),
-(7, 5, 'Barang G', 'pcs', '247017', '257017', 'fgf.jpg', 0, 0, 0),
-(8, 6, 'Barang H', 'pcs', '124774', '134774', 'fgf.jpg', 0, 0, 0),
-(9, 6, 'Barang I', 'pcs', '214467', '224467', 'fgf.jpg', 0, 0, 0),
-(10, 5, 'Barang J', 'pcs', '114212', '124212', 'fgf.jpg', 0, 0, 0),
-(11, 6, 'Barang K', 'pcs', '244616', '254616', 'fgf.jpg', 0, 0, 0),
-(12, 6, 'Barang L', 'pcs', '239311', '249311', 'fgf.jpg', 0, 0, 0),
-(13, 6, 'Barang M', 'pcs', '197957', '207957', 'fgf.jpg', 0, 0, 0),
-(14, 6, 'Barang N', 'pcs', '140001', '150001', 'fgf.jpg', 0, 0, 0),
-(15, 4, 'Barang O', 'pcs', '213329', '223329', 'fgf.jpg', 0, 0, 0),
-(16, 4, 'Barang P', 'pcs', '183753', '193753', 'fgf.jpg', 0, 0, 0),
-(17, 6, 'Barang Q', 'pcs', '218602', '228602', 'fgf.jpg', 0, 0, 0);
+INSERT INTO `barang` (`id_barang`, `id_kategori`, `nama_barang`, `keterangan`, `harga_supplier`, `harga_jual`, `gambar`, `stok_min`, `eoq_in`, `stok_gudang`, `biaya_pemesanan`, `biaya_penyimpanan`) VALUES
+(1, 6, 'Barang A', 'pcs', '112471', '122471', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(2, 3, 'Barang B', 'pcs', '146361', '156361', 'fgf.jpg', 77119, 11139, 80000, 40000, 7000),
+(3, 1, 'Barang C', 'pcs', '113685', '123685', 'fgf.jpg', 4, 8, 0, 40000, 7000),
+(4, 2, 'Barang D', 'pcs', '100431', '110431', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(5, 3, 'Barang E', 'pcs', '198725', '208725', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(6, 2, 'Barang F', 'pcs', '132284', '142284', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(7, 5, 'Barang G', 'pcs', '247017', '257017', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(8, 6, 'Barang H', 'pcs', '124774', '134774', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(9, 6, 'Barang I', 'pcs', '214467', '224467', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(10, 5, 'Barang J', 'pcs', '114212', '124212', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(11, 6, 'Barang K', 'pcs', '244616', '254616', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(12, 6, 'Barang L', 'pcs', '239311', '249311', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(13, 6, 'Barang M', 'pcs', '197957', '207957', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(14, 6, 'Barang N', 'pcs', '140001', '150001', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(15, 4, 'Barang O', 'pcs', '213329', '223329', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(16, 4, 'Barang P', 'pcs', '183753', '193753', 'fgf.jpg', 0, 0, 0, 40000, 7000),
+(17, 6, 'Barang Q', 'pcs', '218602', '228602', 'fgf.jpg', 0, 0, 0, 40000, 7000);
 
 -- --------------------------------------------------------
 
@@ -1697,94 +1688,6 @@ ALTER TABLE `analisis`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
-
---
--- Indexes for table `barang_keluar`
---
-ALTER TABLE `barang_keluar`
-  ADD PRIMARY KEY (`id_bkeluar`);
-
---
--- Indexes for table `dbarang_keluar`
---
-ALTER TABLE `dbarang_keluar`
-  ADD PRIMARY KEY (`id_dbarang`);
-
---
--- Indexes for table `detail_transaksi`
---
-ALTER TABLE `detail_transaksi`
-  ADD PRIMARY KEY (`id_detail`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id_kategori`);
-
---
--- Indexes for table `pengguna`
---
-ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`);
-
---
--- Indexes for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `analisis`
---
-ALTER TABLE `analisis`
-  MODIFY `id_analisis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `barang`
---
-ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `barang_keluar`
---
-ALTER TABLE `barang_keluar`
-  MODIFY `id_bkeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=731;
-
---
--- AUTO_INCREMENT for table `dbarang_keluar`
---
-ALTER TABLE `dbarang_keluar`
-  MODIFY `id_dbarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=731;
-
---
--- AUTO_INCREMENT for table `detail_transaksi`
---
-ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `pengguna`
---
-ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

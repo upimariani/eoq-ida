@@ -51,8 +51,8 @@ class cAnalisis extends CI_Controller
 			'tahun' => $periode,
 			'eoq' => $eoq,
 			'rop' => $rop,
-			'biaya_pemesanan' => $biaya_pemesanan,
-			'biaya_penyimpanan' => $biaya_penyimpanan,
+			// 'biaya_pemesanan' => $biaya_pemesanan,
+			// 'biaya_penyimpanan' => $biaya_penyimpanan,
 			'jml_penggunaan' => $jumlah_kebutuhan->total,
 			'ss' => $ss,
 			'lt' => $lt
