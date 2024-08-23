@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 06:07 AM
+-- Generation Time: Aug 19, 2024 at 06:47 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -40,6 +40,14 @@ CREATE TABLE `analisis` (
   `lt` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `analisis`
+--
+
+INSERT INTO `analisis` (`id_analisis`, `id_barang`, `periode`, `tahun`, `eoq`, `rop`, `jml_penggunaan`, `ss`, `lt`) VALUES
+(1, 1, '2024-08-19', 2022, 29, 3, 74, 3, 2),
+(2, 2, '2024-08-19', 2023, 30, 2, 81, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -66,8 +74,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_kategori`, `nama_barang`, `keterangan`, `harga_supplier`, `harga_jual`, `gambar`, `stok_min`, `eoq_in`, `stok_gudang`, `biaya_pemesanan`, `biaya_penyimpanan`) VALUES
-(1, 6, 'Barang A', 'pcs', '112471', '122471', 'fgf.jpg', 0, 0, 0, 40000, 7000),
-(2, 3, 'Barang B', 'pcs', '146361', '156361', 'fgf.jpg', 77119, 11139, 80000, 40000, 7000),
+(1, 6, 'Barang A', 'pcs', '112471', '122471', 'fgf.jpg', 3, 29, 0, 40000, 7000),
+(2, 3, 'Barang B', 'pcs', '146361', '156361', 'fgf.jpg', 2, 30, 80000, 40000, 7000),
 (3, 1, 'Barang C', 'pcs', '113685', '123685', 'fgf.jpg', 4, 8, 0, 40000, 7000),
 (4, 2, 'Barang D', 'pcs', '100431', '110431', 'fgf.jpg', 0, 0, 0, 40000, 7000),
 (5, 3, 'Barang E', 'pcs', '198725', '208725', 'fgf.jpg', 0, 0, 0, 40000, 7000),
@@ -1688,6 +1696,16 @@ ALTER TABLE `analisis`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `analisis`
+--
+ALTER TABLE `analisis`
+  MODIFY `id_analisis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
