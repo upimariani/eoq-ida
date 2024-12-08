@@ -13,6 +13,7 @@ class mAnalisis extends CI_Model
 	{
 		$data['barang'] = $this->db->query("SELECT * FROM `dbarang_keluar` JOIN barang ON barang.id_barang=dbarang_keluar.id_barang GROUP BY barang.id_barang")->result();
 		$data['periode'] = $this->db->query("SELECT YEAR(tgl_keluar) as tahun FROM `barang_keluar` GROUP BY YEAR(tgl_keluar)")->result();
+		$data['bulan'] = $this->db->query("SELECT MONTH(tgl_keluar) as bulan FROM `barang_keluar` GROUP BY MONTH(tgl_keluar)")->result();
 		return $data;
 	}
 

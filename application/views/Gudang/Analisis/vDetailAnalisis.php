@@ -47,6 +47,7 @@
 										<th>No.</th>
 										<th>Nama Kategori</th>
 										<th>Periode Analisis</th>
+										<th>Bulan</th>
 										<th>Tahun</th>
 										<th>EOQ</th>
 										<th>ROP</th>
@@ -61,6 +62,31 @@
 										<tr>
 											<td><?= $no++ ?>.</td>
 											<td><?= $value->nama_barang ?></td>
+											<td><?php if ($value->bulan == '1') {
+													echo 'Januari';
+												} else if ($value->bulan == '2') {
+													echo 'Februari';
+												} else if ($value->bulan == '3') {
+													echo 'Maret';
+												} else if ($value->bulan == '4') {
+													echo 'April';
+												} else if ($value->bulan == '5') {
+													echo 'Mei';
+												} else if ($value->bulan == '6') {
+													echo 'Juni';
+												} else if ($value->bulan == '7') {
+													echo 'Juli';
+												} else if ($value->bulan == '8') {
+													echo 'Agustus';
+												} else if ($value->bulan == '9') {
+													echo 'September';
+												} else if ($value->bulan == '10') {
+													echo 'Oktober';
+												} else if ($value->bulan == '11') {
+													echo 'November';
+												} else if ($value->bulan == '12') {
+													echo 'Desember';
+												} ?></td>
 											<td><?= $value->periode ?></td>
 											<td><?= $value->tahun ?></td>
 											<td><strong><?= $value->eoq ?></strong><br>

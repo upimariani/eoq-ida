@@ -43,6 +43,19 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<label for="exampleInputEmail1">Bulan</label>
+								<select name="bulan" class="form-control" required>
+									<option value="">---Pilih Bulan---</option>
+									<?php
+									foreach ($variabel['bulan'] as $key => $value) {
+									?>
+										<option value="<?= $value->bulan ?>"><?= $value->bulan ?></option>
+									<?php
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
 								<label for="exampleInputEmail1">Tahun Periode</label>
 								<select name="periode" class="form-control" required>
 									<option value="">---Pilih Tahun---</option>

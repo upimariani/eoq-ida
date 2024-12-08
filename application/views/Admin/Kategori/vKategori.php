@@ -19,6 +19,35 @@
 		<button type="button" class="btn btn-app bg-olive" data-toggle="modal" data-target="#modal-default">
 			<i class="fas fa-store"></i> Kategori
 		</button>
+		<div class="modal fade" id="modal-default">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Tambah Data Kategori</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form action="<?= base_url('Admin/cKategori/create') ?>" method="POST">
+						<div class="modal-body">
+							<div class="card-body">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Nama Kategori</label><span class="text-danger">*</span>
+									<input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama Kategori" required>
+								</div>
+
+							</div>
+						</div>
+						<div class="modal-footer justify-content-between">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn bg-olive">Save changes</button>
+						</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
 		<?php
 		if ($this->session->userdata('success') != '') {
 		?>
@@ -85,9 +114,6 @@
 						<!-- /.card-body -->
 					</div>
 					<!-- /.card -->
-
-
-					<!-- /.card -->
 				</div>
 				<!-- /.col -->
 			</div>
@@ -97,35 +123,7 @@
 	</section>
 	<!-- /.content -->
 </div>
-<div class="modal fade" id="modal-default">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">Tambah Data Kategori</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<form action="<?= base_url('Admin/cKategori/create') ?>" method="POST">
-				<div class="modal-body">
-					<div class="card-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1">Nama Kategori</label><span class="text-danger">*</span>
-							<input type="text" name="nama" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama Kategori" required>
-						</div>
 
-					</div>
-				</div>
-				<div class="modal-footer justify-content-between">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn bg-olive">Save changes</button>
-				</div>
-			</form>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
 <?php
 foreach ($kategori as $key => $value) {
 ?>
